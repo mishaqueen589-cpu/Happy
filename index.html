@@ -52,7 +52,6 @@ button {
   border-radius: 10px;
 }
 .envelope { width: 200px; cursor: pointer; }
-
 </style>
 </head>
 
@@ -85,7 +84,7 @@ button {
 <!-- PAGE 4 -->
 <div id="p4" class="page">
   <img class="cat" src="cat4.png">
-  <h1>HAPPY BIRTHDAY BBG ❤️</h1>
+  <h1>HAPPY BIRTHDAY <br> DEAR LITTLE WITCH MARYAM ❤️</h1>
   <p>YOU ARE MY FAVORITE ANNOYING NOTIFICATION 💌</p>
   <p>STAY CUTE, STAY HAPPY, STAY BLESSED 💖</p>
   <button onclick="go(5)">Next</button>
@@ -124,16 +123,25 @@ button {
   <button onclick="go(8)">Next</button>
 </div>
 
-<!-- PAGE 8 -->
+<!-- PAGE 8 (UPDATED SURPRISE PART) -->
 <div id="p8" class="page">
   <h1>Here's a surprise for you!!! 🎁</h1>
-  <img src="gift.png" width="200">
+
+  <!-- Clickable gift -->
+  <img src="gift.png" width="200" style="cursor:pointer;" onclick="openGift()">
+
+  <!-- Hidden content -->
+  <div id="surpriseContent" style="display:none; margin-top:20px;">
+    <h2 class="cursive">it's me hehe 😏</h2>
+    <img src="surprise.jpg.jpeg" width="250" style="border-radius:10px;">
+  </div>
 </div>
+
+<!-- 🎵 MUSIC -->
 <audio controls>
   <source src="song.mp3.mpeg" type="audio/mpeg">
-  Your browser does not support the audio element.
 </audio>
-<!-- 🎵 MUSIC -->
+
 <audio id="bgMusic" src="song.mp3.mpeg" loop></audio>
 
 <script>
@@ -149,8 +157,12 @@ function playMusic() {
 function go(page) {
   document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
   document.getElementById("p" + page).classList.add("active");
+  playMusic();
+}
 
-  playMusic(); // start music on click
+/* 🎁 GIFT FUNCTION */
+function openGift() {
+  document.getElementById("surpriseContent").style.display = "block";
 }
 </script>
 
